@@ -61,15 +61,12 @@ class Fetcher
       if notification['data'].has_key? 'old' and  notification['data']['old'].has_key? 'closed'
         "#{user} closed card '#{notification['data']['card']['name']}' in '#{notification['data']['board']['name']}'"
       else
-        "#{user} changed card '#{notification['data']['card']['name']}' from '#{notification['data']['listBefore']['name']}' to '#{notification['data']['listAfter']['name']}'"
+        "#{user} moved card '#{notification['data']['card']['name']}' from '#{notification['data']['listBefore']['name']}' to '#{notification['data']['listAfter']['name']}'"
       end
     when 'createdCard'
-      "#{user} created card '#{notification['data']['card']['name']}' into '#{notification['data']['board']['name']}'"
+      "#{user} created card '#{notification['data']['card']['name']}' into '#{notification['data']['list']['name']}' (#{notification['data']['board']['name']} board)"
     else
       "#{user} #{type} #{notification['data']['card']['name']}"
     end
   end
 end
-
-fetcher = Fetcher.new
-fetcher.execute
