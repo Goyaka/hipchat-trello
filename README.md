@@ -1,5 +1,5 @@
 <center>
-[![grove-trello](http://cl.ly/image/1f3j0v252s3l/Screen%20Shot%202012-09-07%20at%2012.11.04%20PM.png)](http://cl.ly/image/1f3j0v252s3l/Screen%20Shot%202012-09-07%20at%2012.11.04%20PM.png)
+[![grove-trello](http://cl.ly/image/2v060X2X2u1X/Screen%20Shot%202012-09-07%20at%2012.12.52%20PM.png)](http://cl.ly/image/2v060X2X2u1X/Screen%20Shot%202012-09-07%20at%2012.12.52%20PM.png)
 </center>
 
 ## What you need
