@@ -1,0 +1,7 @@
+NOTE: Trello doesn't have webhook, so this works on polling method.
+
+1. Run bundle install
+2. Create a token here - https://trello.com/1/appKey/generate
+3. Create a bot user and add it to the board.
+4. Get authorization token for the bot user - https://trello.com/1/authorize?key=YOUR_APP_ID&name=Markupwand&expiration=never&response_type=token&scope=read,write
+5. Run the fetch.rb in your cron, or just loop it in commandline

@@ -1,0 +1,20 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    faraday (0.8.1)
+      multipart-post (~> 1.1)
+    grove-rb (0.2.1)
+      faraday (~> 0.7)
+    mime-types (1.19)
+    multipart-post (1.1.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    yamler (0.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  grove-rb
+  rest-client
+  yamler
