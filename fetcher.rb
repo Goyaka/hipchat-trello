@@ -43,6 +43,7 @@ class Fetcher
     notifications = fetch_notifs
     notifications.reverse!
 
+    Log.info "Notifications list = #{notifications}"
     notifications.each do |notification|
       if unread(notification)
         puts stringify(notification)
