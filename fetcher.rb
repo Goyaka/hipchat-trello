@@ -60,8 +60,10 @@ class Fetcher
     when 'changeCard' 
       if notification['data'].has_key? 'old' and  notification['data']['old'].has_key? 'closed'
         "#{user} closed card '#{notification['data']['card']['name']}' in '#{notification['data']['board']['name']}'"
-      else
+      elsif notification['data'].has_key? 'listBefore' 
         "#{user} moved card '#{notification['data']['card']['name']}' from '#{notification['data']['listBefore']['name']}' to '#{notification['data']['listAfter']['name']}'"
+      else 
+        "#{user} changed card #{notification['data']['card']['name']}"
       end
     when 'createdCard'
       "#{user} created card '#{notification['data']['card']['name']}' into '#{notification['data']['list']['name']}' (#{notification['data']['board']['name']} board)"
