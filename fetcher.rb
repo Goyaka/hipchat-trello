@@ -27,6 +27,9 @@ class Fetcher
       puts "Unauthorized. Please hit the URL below and save the response in config.yml (trello -> oauth_token) \n https://trello.com/1/authorize?key=#{@config['trello']['app_id']}&name=Markupwand&expiration=never&response_type=token&scope=read,write,account\n\n"
 
       throw "Unauthorized"
+    rescue
+      sleep 600
+      return []
     end
   end
 
@@ -43,7 +46,6 @@ class Fetcher
     notifications = fetch_notifs
     notifications.reverse!
 
-    Log.info "Notifications list = #{notifications}"
     notifications.each do |notification|
       if unread(notification)
         puts stringify(notification)
@@ -60,14 +62,16 @@ class Fetcher
     case type
     when 'changeCard' 
       if notification['data'].has_key? 'old' and  notification['data']['old'].has_key? 'closed'
-        "#{user} closed card '#{notification['data']['card']['name']}' in '#{notification['data']['board']['name']}'"
+        "#{user} closed task '#{notification['data']['card']['name']}' in '#{notification['data']['board']['name']}'"
       elsif notification['data'].has_key? 'listBefore' 
-        "#{user} moved card '#{notification['data']['card']['name']}' from '#{notification['data']['listBefore']['name']}' to '#{notification['data']['listAfter']['name']}'"
+        "#{user} moved task '#{notification['data']['card']['name']}' from '#{notification['data']['listBefore']['name']}' to '#{notification['data']['listAfter']['name']}'"
       else 
-        "#{user} changed card #{notification['data']['card']['name']}"
+        "#{user} changed task #{notification['data']['card']['name']}"
       end
     when 'createdCard'
-      "#{user} created card '#{notification['data']['card']['name']}' into '#{notification['data']['list']['name']}' (#{notification['data']['board']['name']} board)"
+      "#{user} created task '#{notification['data']['card']['name']}' into '#{notification['data']['list']['name']}' (#{notification['data']['board']['name']} board)"
+    when 'addedMemberToCard'
+      "#{user} added #{notification['member']['username']} to task #{notification['data']['card']['name']}"
     else
       "#{user} #{type} #{notification['data']['card']['name']}"
     end
