@@ -1,10 +1,10 @@
 <center>
-[![grove-trello](http://cl.ly/image/2v060X2X2u1X/Screen%20Shot%202012-09-07%20at%2012.12.52%20PM.png)](http://cl.ly/image/2v060X2X2u1X/Screen%20Shot%202012-09-07%20at%2012.12.52%20PM.png)
+[![grove-hipchat](http://cl.ly/image/3l1X2v132R1i/Screen%20Shot%202012-09-16%20at%206.29.31%20PM.png)](http://cl.ly/image/3l1X2v132R1i/Screen%20Shot%202012-09-16%20at%206.29.31%20PM.png)
 </center>
 
 ## What you need
 
-1. Grove.io account
+1. Hipchat account
 2. Trello account
 3. A bot account which could be added to your Trello boards could monitor all notifications
 4. I have tested it on ruby 1.9.2-p320, not sure other versions work.
