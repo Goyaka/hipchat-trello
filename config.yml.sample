@@ -1,5 +1,6 @@
 trello:
- app_id: YOUR_APP_ID
- oauth_token: BOT_OAUTH_TOKEN # Obtained using https://trello.com/1/authorize?key=YOUR_APP_ID&name=Markupwand&expiration=never&response_type=token&scope=read,write
-grove:
- channel_token: CHANNEL_TOKEN
+ app_id: TRELLO_API
+ oauth_token: OAUTH_TOKEN
+hipchat:
+ auth_token: AUTH_TOKEN
+ room_name: ROOM_NAME
