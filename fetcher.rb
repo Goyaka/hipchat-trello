@@ -2,7 +2,7 @@ require 'rest_client'
 require 'yamler'
 require 'json'
 require 'pp'
-require 'grove-rb'
+require 'hipchat'
 
 class Fetcher
   attr_reader :config
@@ -10,9 +10,9 @@ class Fetcher
     @config = Yamler.load('config.yml') 
   end
 
-  def grove_push(message)
-    grove = Grove.new(@config['grove']['channel_token'], :service => 'Trello', :icon_url => 'https://trello.com/favicon.ico')
-    grove.post message
+  def chat_push(message)
+    client = HipChat::Client.new(@config['hipchat']['auth_token'])
+    client[@config['hipchat']['room_name']].send('Trello', message, :notify => true, :color => 'purple')
   end
 
   def signature
@@ -49,7 +49,7 @@ class Fetcher
     notifications.each do |notification|
       if unread(notification)
         puts stringify(notification)
-        grove_push stringify(notification)
+        chat_push stringify(notification)
         clear_notifs(notification)
       end
     end
@@ -72,7 +72,10 @@ class Fetcher
       "#{user} created task '#{notification['data']['card']['name']}' into '#{notification['data']['list']['name']}' (#{notification['data']['board']['name']} board)"
     when 'addedMemberToCard'
       "#{user} added #{notification['member']['username']} to task #{notification['data']['card']['name']}"
+    when 'updateCheckItemStateOnCard'
+      "#{user} checked off an item in #{notification['data']['card']['name']}"
     else
+      pp notification
       "#{user} #{type} #{notification['data']['card']['name']}"
     end
   end
