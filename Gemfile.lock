@@ -1,12 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    faraday (0.8.1)
-      multipart-post (~> 1.1)
-    grove-rb (0.2.1)
-      faraday (~> 0.7)
+    hipchat (0.4.1)
+      httparty
+    httparty (0.9.0)
+      multi_json (~> 1.0)
+      multi_xml
     mime-types (1.19)
-    multipart-post (1.1.5)
+    multi_json (1.3.6)
+    multi_xml (0.5.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     yamler (0.1.0)
@@ -15,6 +17,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  grove-rb
+  hipchat
   rest-client
   yamler

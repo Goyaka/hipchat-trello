@@ -4,4 +4,4 @@ ruby "1.9.2"
 
 gem 'rest-client'
 gem 'yamler'
-gem 'grove-rb'
+gem 'hipchat'
