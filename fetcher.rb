@@ -73,7 +73,7 @@ class Fetcher
     when 'addedMemberToCard'
       "#{user} added #{notification['member']['username']} to task #{notification['data']['card']['name']}"
     when 'updateCheckItemStateOnCard'
-      "#{user} checked off an item in #{notification['data']['card']['name']}"
+      "#{user} checked off '#{notification['data']['name']}' in #{notification['data']['card']['name']} "
     else
       pp notification
       "#{user} #{type} #{notification['data']['card']['name']}"
